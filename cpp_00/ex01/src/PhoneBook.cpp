@@ -82,7 +82,7 @@ void	PhoneBook::search_contact()
 		std::cout << std::endl;
 	}
 
-	// falta la parte de recibir un numero y poner solo la info de ese contacto
+	// falta la parte de recibir un numero y poner solo la info de ese contacto.
 }
 
 void	PhoneBook::start_PhoneBook()
