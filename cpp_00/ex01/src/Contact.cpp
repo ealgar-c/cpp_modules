@@ -20,11 +20,10 @@ void	Contact::add_secret(std::string str)
 	this->secret = str;
 }
 
-void	Contact::add_ph_nbr(std::string ph_nbr)
+void	Contact::add_ph_nbr(int ph_nbr)
 {
 	this->ph_nbr = ph_nbr;
 }
-
 
 void	Contact::print_fname()
 {
@@ -99,4 +98,13 @@ void	Contact::print_nickname()
 			std::cout << str[i];
 	}
 	std::cout << "|";
+}
+
+void	Contact::full_display()
+{
+	std::cout << std::endl << "FULL NAME: " << this->fname << std::endl;
+	std::cout << "LAST NAME: " << this->lname << std::endl;
+	std::cout << "NICKNAME: " << this->nickname << std::endl;
+	std::cout << "DARKEST SECRET: " << this->secret << std::endl;
+	std::cout << "PHONE NUMBER: " << this->ph_nbr << std::endl << std::endl;
 }

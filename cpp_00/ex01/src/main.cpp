@@ -16,7 +16,7 @@ int	main(void)
 		std::cin >> input;
 		std::cin.ignore();
 		if (input[0] == '\0')
-			input == "EXIT";
+			input = "EXIT";
 		else if (input == "ADD")
 			agenda.create_contact();
 		else if (input == "SEARCH")

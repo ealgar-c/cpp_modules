@@ -1,5 +1,17 @@
 #include "../include/PhoneBook.hpp"
 
+static bool	valid_nb(std::string str)
+{
+	int	i = -1;
+
+	while (str[++i])
+	{
+		if (isdigit(str[i]) == 0)
+			return (false);
+	}
+	return (true);
+}
+
 void	PhoneBook::create_contact()
 {
 	std::string input;
@@ -14,7 +26,7 @@ void	PhoneBook::create_contact()
 	std::getline (std::cin, input, '\n');
 	while (input[0] == '\0')
 	{
-		std::cout << "error: Empty" << std::endl;
+		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert the First Name: ";
 		std::getline (std::cin, input, '\n');
 	}
@@ -23,7 +35,7 @@ void	PhoneBook::create_contact()
 	std::getline (std::cin, input, '\n');
 	while (input[0] == '\0')
 	{
-		std::cout << "error: Empty" << std::endl;
+		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert the Last Name: ";
 		std::getline (std::cin, input, '\n');
 	}
@@ -32,7 +44,7 @@ void	PhoneBook::create_contact()
 	std::getline (std::cin, input, '\n');
 	while (input[0] == '\0')
 	{
-		std::cout << "error: Empty" << std::endl;
+		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert a Nickname: ";
 		std::getline (std::cin, input, '\n');
 	}
@@ -41,20 +53,20 @@ void	PhoneBook::create_contact()
 	std::getline (std::cin, input, '\n');
 	while (input[0] == '\0')
 	{
-		std::cout << "error: Empty" << std::endl;
+		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert the darkest secret: ";
 		std::getline (std::cin, input, '\n');
 	}
 	this->contacts[index - 1].add_secret(input);
 	std::cout << "Insert the Phone Number: ";
 	std::getline (std::cin, input, '\n');
-	while (input[0] == '\0')
+	while (input[0] == '\0' || !valid_nb(input))
 	{
-		std::cout << "error: Empty" << std::endl;
+		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert the Phone Number: ";
 		std::getline (std::cin, input, '\n');
 	}	
-	this->contacts[index - 1].add_ph_nbr(input);
+	this->contacts[index - 1].add_ph_nbr(atoi(input.c_str()));
 	if (this->ind != 8)
 		this->ind = index;
 	index++;
@@ -62,11 +74,13 @@ void	PhoneBook::create_contact()
 
 void	PhoneBook::search_contact()
 {
-	int	i = 0;
+	int			i = 0;
+	std::string	input;
+	int			num_in;
 
 	if (this->ind <= 0)
 	{
-		std::cout << "This phonebook is empty" << std::endl;
+		std::cout << "This phonebook is empty" << std::endl << std::endl;
 		return ;
 	}
 	std::cout << "|" << "     INDEX" << "|";
@@ -81,8 +95,18 @@ void	PhoneBook::search_contact()
 		this->contacts[i - 1].print_nickname();
 		std::cout << std::endl;
 	}
+	std::cout << std::endl << "Enter the index of the Contact > ";
+	std::getline (std::cin, input, '\n');
+	num_in = atoi(input.c_str());
+	while (num_in < 1 || num_in > this->ind)
+	{
+		std::cout << "error: Invalid input" << std::endl;
+		std::cout << "Enter the index of the Contact > ";
+		std::getline (std::cin, input, '\n');
+		num_in = atoi(input.c_str());
+	}
+	this->contacts[num_in - 1].full_display();
 
-	// falta la parte de recibir un numero y poner solo la info de ese contacto.
 }
 
 void	PhoneBook::start_PhoneBook()

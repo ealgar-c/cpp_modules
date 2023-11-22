@@ -11,7 +11,7 @@ class Contact{
 		std::string lname;
 		std::string nickname;
 		std::string secret;
-		std::string	ph_nbr;
+		int			ph_nbr;
 	public:
 		void	add_fname(std::string str);
 		void	print_fname();
@@ -20,6 +20,7 @@ class Contact{
 		void	add_nickname(std::string str);
 		void	print_nickname();
 		void	add_secret(std::string str);
-		void	add_ph_nbr(std::string ph_nbr);
+		void	add_ph_nbr(int ph_nbr);
+		void	full_display();
 };
 #endif
