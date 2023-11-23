@@ -8,6 +8,7 @@ class PhoneBook{
 	private:
 		Contact	contacts[8];
 		int		ind;
+		void	reorder();
 	public:
 		void	create_contact();
 		void	search_contact();
