@@ -33,48 +33,58 @@ void	PhoneBook::create_contact()
 		std::cout << "Replacing oldest contact" << std::endl;
 	}
 	std::cout << "Insert the First Name: ";
-	std::getline (std::cin, input, '\n');
+	if (!std::getline(std::cin, input, '\n'))
+			return;
 	while (input[0] == '\0')
 	{
 		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert the First Name: ";
-		std::getline (std::cin, input, '\n');
+		if (!std::getline(std::cin, input, '\n'))
+			return;
 	}
 	this->contacts[index].add_fname(input);
 	std::cout << "Insert the Last Name: ";
-	std::getline (std::cin, input, '\n');
+	if (!std::getline(std::cin, input, '\n'))
+			return;
 	while (input[0] == '\0')
 	{
 		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert the Last Name: ";
-		std::getline (std::cin, input, '\n');
+		if (!std::getline(std::cin, input, '\n'))
+			return;
 	}
 	this->contacts[index].add_lname(input);
 	std::cout << "Insert a Nickname: ";
-	std::getline (std::cin, input, '\n');
+	if (!std::getline(std::cin, input, '\n'))
+			return;
 	while (input[0] == '\0')
 	{
 		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert a Nickname: ";
-		std::getline (std::cin, input, '\n');
+		if (!std::getline(std::cin, input, '\n'))
+			return;
 	}
 	this->contacts[index].add_nickname(input);
 	std::cout << "Insert the darkest secret: ";
-	std::getline (std::cin, input, '\n');
+	if (!std::getline(std::cin, input, '\n'))
+			return;
 	while (input[0] == '\0')
 	{
 		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert the darkest secret: ";
-		std::getline (std::cin, input, '\n');
+		if (!std::getline(std::cin, input, '\n'))
+			return;
 	}
 	this->contacts[index].add_secret(input);
 	std::cout << "Insert the Phone Number: ";
-	std::getline (std::cin, input, '\n');
+	if (!std::getline(std::cin, input, '\n'))
+			return;
 	while (input[0] == '\0' || !valid_nb(input) || input.length() > 9)
 	{
 		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Insert the Phone Number: ";
-		std::getline (std::cin, input, '\n');
+		if (!std::getline(std::cin, input, '\n'))
+			return;
 	}	
 	this->contacts[index].add_ph_nbr(atoi(input.c_str()));
 	
@@ -110,14 +120,23 @@ void	PhoneBook::search_contact()
 		std::cout << std::endl;
 	}
 	std::cout << std::endl << "Enter the index of the Contact > ";
-	std::getline (std::cin, input, '\n');
-	num_in = atoi(input.c_str());
-	while (num_in < 0 || num_in > this->ind + 1)
+	if (!std::getline(std::cin, input, '\n'))
+			return;
+	if (valid_nb(input))
+		num_in = atoi(input.c_str());
+	else
+		num_in = -1;
+
+	while (num_in <= 0 || num_in > this->ind + 1)
 	{
 		std::cout << "error: Invalid input" << std::endl;
 		std::cout << "Enter the index of the Contact > ";
-		std::getline (std::cin, input, '\n');
-		num_in = atoi(input.c_str());
+		if (!std::getline(std::cin, input, '\n'))
+			return;
+		if (valid_nb(input))
+			num_in = atoi(input.c_str());
+		else
+			num_in = -1;
 	}
 	this->contacts[num_in - 1].full_display();
 
@@ -125,5 +144,5 @@ void	PhoneBook::search_contact()
 
 void	PhoneBook::start_PhoneBook()
 {
-	this->ind = 0;
+	this->ind = -1;
 }

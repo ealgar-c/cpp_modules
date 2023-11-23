@@ -13,8 +13,8 @@ int	main(void)
 		std::cout << "--- SEARCH ---" << std::endl;
 		std::cout << "----- EXIT -----" << std::endl;
 		std::cout << "> ";
-		std::cin >> input;
-		std::cin.ignore();
+		if (!std::getline(std::cin, input, '\n'))
+			return (0);
 		if (input[0] == '\0')
 			input = "EXIT";
 		else if (input == "ADD")
