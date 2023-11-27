@@ -16,5 +16,5 @@ Weapon::~Weapon()
 
 const std::string	&Weapon::getType()
 {
-	return (&this->type);
+	return (this->type);
 }

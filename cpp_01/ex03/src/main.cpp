@@ -1,6 +1,11 @@
 #include "../include/HumanA.hpp"
 #include "../include/HumanB.hpp"
 
+void	leak_check(void)
+{
+	std::system("leaks -q tekken");
+}
+
 int main()
 {
 	{
@@ -18,5 +23,6 @@ int main()
 	club.setType("some other type of club");
 	jim.attack();
 	}
+	std::atexit(leak_check);
 return 0;
 }
