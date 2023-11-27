@@ -5,7 +5,6 @@ void	leak_check(void)
 	std::system("leaks -q zombie_horde");
 }
 
-
 int	main()
 {
 	std::atexit(leak_check);
