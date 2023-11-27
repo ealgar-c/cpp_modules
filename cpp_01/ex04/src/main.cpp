@@ -10,10 +10,9 @@ void	ft_error(std::string error)
 
 void	mod_str(std::string &str, std::string to_search, std::string replace)
 {
-	int	j;
+	int	j = -1;
 
-	j = str.find(to_search, 0);
-	while ((j = str.find(to_search, 0)) != -1)
+	while ((j = str.find(to_search, j + 1)) != -1)
 		str.erase(j, to_search.length()).insert(j, replace);
 }
 
