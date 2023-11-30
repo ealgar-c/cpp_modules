@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:59:08 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/11/30 15:21:39 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:50:39 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 			~Fixed(void);
 			Fixed	&operator= (const Fixed &);
 			int		getRawBits(void) const;
-			void	setRawBits(int const);
+			void	setRawBits(const int);
 			float	toFloat(void) const;
 			int		toInt(void) const;
 	};

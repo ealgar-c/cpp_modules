@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:59:14 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/11/30 15:21:59 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:50:33 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	Fixed::getRawBits(void) const
 	return (this->fixed_value);
 }
 
-void	Fixed::setRawBits(int const raw)
+void	Fixed::setRawBits(const int raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->fixed_value = raw;
