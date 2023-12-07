@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:42:11 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/07 12:55:46 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:22:13 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,14 @@ ClapTrap &ClapTrap::operator= (const ClapTrap &toEqual)
 
 void	ClapTrap::attack(const std::string &target)
 {
-	if (this->energy_pts == 0 || this->hit_pts == 0)
+	if (this->energy_pts == 0)
 	{
-		std::cout << this->name << " does not have enough enery points ... " << std::endl;
+		std::cout << this->name << " does not have enough energy points ... " << std::endl;
+		return ;
+	}
+	if (this->hit_pts == 0)
+	{
+		std::cout << this->name << " is already dead ... " << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->att_dmg << " points of damage!" << std::endl;
@@ -76,9 +81,14 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->energy_pts == 0 || this->hit_pts == 0)
+	if (this->energy_pts == 0)
 	{
-		std::cout << this->name << " does not have enough enery points ... " << std::endl;
+		std::cout << this->name << " does not have enough energy points ... " << std::endl;
+		return ;
+	}
+	if (this->hit_pts == 0)
+	{
+		std::cout << this->name << " is already dead ... " << std::endl;
 		return ;
 	}
 	this->hit_pts += amount;
