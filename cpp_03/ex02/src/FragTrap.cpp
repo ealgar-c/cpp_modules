@@ -6,24 +6,26 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:40:29 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/07 15:00:51 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:57:45 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/FragTrap.hpp"
 
-FragTrap::FragTrap(): ScavTrap()
+FragTrap::FragTrap(): ClapTrap()
 {
 	std::cout << "FragTrap empty constructor called" << std::endl;
 	this->energy_pts = 100;
+	this->hit_pts = 100;
 	this->att_dmg = 30;
 }
 
-FragTrap::FragTrap(const std::string &name): ScavTrap(name)
+FragTrap::FragTrap(const std::string &name): ClapTrap(name)
 {
 	std::cout << "FragTrap name assignation constructor called" << std::endl;
 	this->name = name;
 	this->energy_pts = 100;
+	this->hit_pts = 100;
 	this->att_dmg = 30;
 }
 
