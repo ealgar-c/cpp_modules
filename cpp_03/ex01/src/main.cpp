@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:42:09 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/07 13:38:14 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:36:55 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ int	main(void)
 	steve.attack("peter");
 	peter.takeDamage(20);
 	peter.beRepaired(25);
+	peter.attack("steve");
+	steve.takeDamage(20);
+	peter.attack("steve");
+	steve.takeDamage(20);
+	peter.attack("steve");
+	steve.takeDamage(20);
+	peter.attack("steve");
+	steve.takeDamage(20);
+	peter.attack("steve");
+	steve.takeDamage(20);
+	steve.beRepaired(100);
 	steve.guardGate();
 	steve.guardGate();
 	return (0);
