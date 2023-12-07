@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:03:10 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/07 13:36:41 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:02:25 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-	std::cout << "ClapTrap empty constructor called" << std::endl;
+	std::cout << "ScavTrap empty constructor called" << std::endl;
 	this->hit_pts = 100;
 	this->energy_pts = 50;
 	this->att_dmg = 20;
@@ -61,6 +61,11 @@ void	ScavTrap::attack(const std::string &target)
 
 void	ScavTrap::guardGate(void)
 {
+	if (this->hit_pts == 0)
+	{
+		std::cout << this->name << " is already dead ... " << std::endl;
+		return ;
+	}
 	if (!this->gateKeeper)
 	{
 		this->gateKeeper = true;
