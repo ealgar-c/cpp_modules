@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:40:21 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/09 13:05:32 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/11 13:52:03 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 		public:
 			DiamondTrap();
 			DiamondTrap(DiamondTrap &);
-			DiamondTrap(std::string);
+			DiamondTrap(const std::string &);
 			~DiamondTrap();
+			void	whoAmI(void);
 	};
 #endif
