@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:40:21 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/11 13:52:03 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:38:45 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "FragTrap.hpp"
 
-	class DiamondTrap: public FragTrap, public ScavTrap
+	class DiamondTrap: public ScavTrap, public FragTrap
 	{
 		private:
 			std::string name;
@@ -25,5 +25,6 @@
 			DiamondTrap(const std::string &);
 			~DiamondTrap();
 			void	whoAmI(void);
+			void	showValues(void);
 	};
 #endif

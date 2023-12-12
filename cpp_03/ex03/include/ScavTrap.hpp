@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:02:03 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/11 13:06:36 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:36:35 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 class ScavTrap: virtual public ClapTrap
 {
-	private:
+	protected:
+		static const int _energyPts = 50;
 		bool gateKeeper;
 	public:
 		ScavTrap();
