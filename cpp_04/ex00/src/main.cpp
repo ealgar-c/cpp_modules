@@ -6,12 +6,13 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:15:13 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/13 13:20:57 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/13 13:52:56 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Cat.hpp"
 #include "../include/Dog.hpp"
+#include "../include/WrongCat.hpp"
 
 void	leakCheck(void)
 {
@@ -33,5 +34,9 @@ int	main(void)
 	delete(meta);
 	delete(pancho);
 	delete(misifu);
+	const WrongAnimal *cosa = new WrongCat();
+	std::cout << "cosa is a " << cosa->getType() << " and it says ";
+	cosa->makeSound();
+	delete(cosa);
 	return (0);
 }
