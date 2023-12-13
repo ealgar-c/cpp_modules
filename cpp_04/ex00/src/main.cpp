@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 12:15:13 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/13 13:52:56 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/13 13:53:21 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void	leakCheck(void)
 {
 	system("leaks -q Polymorph");
+	
 }
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:57:47 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/13 12:42:13 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/13 15:50:52 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include <string.h>
 
 class Animal
 {

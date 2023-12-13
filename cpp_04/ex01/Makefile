@@ -6,14 +6,14 @@
 #    By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/13 13:16:34 by ealgar-c          #+#    #+#              #
-#    Updated: 2023/12/13 13:17:12 by ealgar-c         ###   ########.fr        #
+#    Updated: 2023/12/13 13:54:14 by ealgar-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ideas
 CC = c++
 
-SRC = src/main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongAnimal.cpp
+SRC = src/main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/Brain.cpp
 CPPFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJ_SRC = $(SRC:.cpp=.o)

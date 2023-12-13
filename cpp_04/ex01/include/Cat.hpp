@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:39:27 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/13 12:43:38 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:25:31 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define CAT_HPP
 
 
-# include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat: public Animal
 {
+	private:
+		Brain *_brain;
 	public:
 	// constructors
 		Cat();
