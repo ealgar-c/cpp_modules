@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:44:25 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/13 14:26:21 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:37:34 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ Cat::~Cat()
 	std::cout << "[CAT] Destructor called" << std::endl;
 }
 
-Cat &Cat::operator=(Cat &toEqual)
+Cat &Cat::operator=(const Cat &toEqual)
 {
 	if (this != &toEqual)
 	{
 		_type = toEqual.getType();
-		this->_brain = toEqual._brain;
+		*this->_brain = *toEqual._brain;
 	}
 	return *this;
 }
@@ -46,4 +46,16 @@ Cat &Cat::operator=(Cat &toEqual)
 void	Cat::makeSound() const
 {
 	std::cout << "miau" << std::endl;
+}
+
+void	Cat::shareThoughts(void) const
+{
+	std::cout << "idea 1: " << this->_brain->getIdea(0) << std::endl;
+	std::cout << "idea 2: " << this->_brain->getIdea(1) << std::endl;
+	std::cout << "idea 3: " << this->_brain->getIdea(2) << std::endl;
+}
+
+void	Cat::thinkSomething(std::string thought) const
+{
+	this->_brain->setIdea(thought);
 }

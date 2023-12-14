@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:32:17 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/13 16:13:18 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:19:38 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog: public Animal
 	public:
 	// constructors
 		Dog();
-		Dog(Dog &);
+		Dog(const Dog &);
 	// destructor
 		~Dog();
 	// equal overload

@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:54:21 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/13 18:30:23 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:37:58 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,17 @@ Brain::~Brain()
 
 Brain &Brain::operator=(const Brain &toEqual)
 {
-	std::cout << "2test" << std::endl;
-	for (int i = 0; i <= this->_ideasNbr; i++)
+	
+	for (int i = 0; i < toEqual._ideasNbr; i++)
 		this->_ideas[i] = toEqual._ideas[i];
+	this->_ideasNbr = toEqual._ideasNbr;
 	return (*this);
 }
 
 void	Brain::setIdea(std::string thought)
 {
 	if (this->_ideasNbr == 100)
-		std::cout << "This head is already full of thoughts ..." << std::endl;
+		std::cout << "This brain is already full of thoughts ..." << std::endl;
 	else
 	{
 		this->_ideas[_ideasNbr] = thought;
@@ -54,7 +55,7 @@ void	Brain::setIdea(std::string thought)
 std::string Brain::getIdea(const int index) const
 {
 	if (index >= this->_ideasNbr)
-		std::cout << "This head doesnt have that much ideas yet ...";
+		std::cout << "This brain doesnt have that much ideas yet ...";
 	else
 		return (this->_ideas[index]);
 	return ("");

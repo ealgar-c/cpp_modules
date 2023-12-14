@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:12:21 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/13 18:29:41 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:20:39 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Dog::Dog()
 	std::cout << "[DOG] Default Constructor called" << std::endl;
 }
 
-Dog::Dog(Dog &toCopy)
+Dog::Dog(const Dog &toCopy)
 {
 	_type = toCopy.getType();
 	this->_brain = toCopy._brain;
@@ -37,10 +37,9 @@ Dog &Dog::operator=(const Dog &toEqual)
 	if (this != &toEqual)
 	{
 		_type = toEqual.getType();
-		std::cout << "test" << std::endl;
 		*this->_brain = *toEqual._brain;
 	}
-	return *this;
+	return (*this);
 }
 
 void	Dog::makeSound() const
