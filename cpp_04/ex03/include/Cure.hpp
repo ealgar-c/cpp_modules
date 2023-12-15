@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 14:22:32 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/15 13:34:40 by ealgar-c         ###   ########.fr       */
+/*   Created: 2023/12/15 11:21:37 by ealgar-c          #+#    #+#             */
+/*   Updated: 2023/12/15 12:03:54 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 # include "Interfaces.hpp"
 
-class AMateria
+class Cure: public AMateria
 {
-	protected:
-		std::string _type;
 	public:
 		// empty constructor
-			AMateria(void);
+		Cure(void);
 		// copy constructor
-			AMateria(const AMateria &);
-		// type constructor
-			AMateria(std::string const &type);
+		Cure(const Cure &);
 		// destructor
-			virtual	~AMateria(void);
+		~Cure(void);
 		// equal operator overload
-			AMateria &operator=(const AMateria &);
-		// getter
-			std::string const	&getType(void) const; //Returns the materia type
+		Cure &operator=(const Cure &);
 		// methods
-			virtual AMateria	*clone(void) const = 0;
-			virtual void		use(ICharacter &target);
+		virtual Cure		*clone(void) const;
+		virtual void		use(ICharacter &target);
 };
 
 #endif
