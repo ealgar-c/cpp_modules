@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 12:36:39 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/12/15 15:04:02 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:08:26 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void leaksCheck(void)
 /* 
 int main(void)
 {
+	atexit(leaksCheck);
 	Ice ice;
 	Cure cure;
 	Character c1("paco");
@@ -47,8 +48,8 @@ int main(void)
 	
 	
 	return (0);
-} */
-
+}
+ */
 int main(void)
 {
 	atexit(leaksCheck);
