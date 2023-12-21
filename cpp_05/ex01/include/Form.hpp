@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:55:05 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/07 18:18:12 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:05:24 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FORM_HPP
 
 # include <iostream>
-# include "Form.hpp"
+# include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -26,23 +26,23 @@ class Form
 		const int			_requiredSign;
 		const int			_requiredExec;
 	public:
-		// default constructor
+		// empy constructor
 			Form(void);
 		// Copy constructor
 			Form(const Form &);
 		// default constructor
 			Form(const std::string, const int, const int);
-		// default constructor
+		// default destructor
 			~Form(void);
 		// Equal operator overload
 			Form &operator= (const Form &);
 		// getters
-			const std::string	getName(void) const;
-			int 				getRequiredSign(void) const;
-			int					getRequiredExec(void) const;
-			bool				getSigned(void) const;
-		//	methods
-		void	beSigned(Bureaucrat &);
+			std::string	getName(void) const;
+			const int	getRequiredSign(void) const;
+			const int	getRequiredExec(void) const;
+			bool		getSigned(void) const;
+		// mehods
+			void		beSigned(Bureaucrat &);
 		// exceptions
 			class GradeTooHighException: public std::exception{
 				public:
