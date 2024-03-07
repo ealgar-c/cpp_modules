@@ -1,46 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:55:05 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/07 18:18:12 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:44:04 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include "Form.hpp"
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
-	private:
+	protected:
 		const std::string	_name;
 		bool				_signed;
 		const int			_requiredSign;
 		const int			_requiredExec;
 	public:
 		// default constructor
-			Form(void);
+			AForm(void);
 		// Copy constructor
-			Form(const Form &);
+			AForm(const Form &);
 		// default constructor
-			Form(const std::string, const int, const int);
+			AForm(const std::string, const int, const int);
 		// default constructor
-			~Form(void);
+			~AForm(void);
 		// Equal operator overload
-			Form &operator= (const Form &);
+			AForm &operator= (const AForm &);
 		// getters
 			const std::string	getName(void) const;
 			int 				getRequiredSign(void) const;
 			int					getRequiredExec(void) const;
 			bool				getSigned(void) const;
+			virtual void		execute(Bureaucrat const & executor) const = 0;
 		//	methods
 		void	beSigned(Bureaucrat &);
 		// exceptions
@@ -55,6 +56,6 @@ class Form
 
 };
 
-std::ostream &operator<< (std::ostream &, const Form &);
+std::ostream &operator<< (std::ostream &, const AForm &);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:11:51 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/07 18:18:17 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:40:30 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <iostream>
 # include "Form.hpp"
 
-class Form;
+class AForm;
+
 	class Bureaucrat
 	{
 		private:
@@ -37,7 +38,8 @@ class Form;
 			// methods
 				void	incrementGrade(void);
 				void	decrementGrade(void);
-				void	signForm(Form &);
+				void	signForm(AForm &);
+				void	executeForm(AForm const &form);
 			// exceptions
 				class GradeTooHighException: public std::exception{
 					public:
