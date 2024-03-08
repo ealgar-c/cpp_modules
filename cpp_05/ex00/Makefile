@@ -6,29 +6,38 @@
 #    By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 18:10:58 by ealgar-c          #+#    #+#              #
-#    Updated: 2023/12/17 18:11:31 by ealgar-c         ###   ########.fr        #
+#    Updated: 2024/03/08 14:42:51 by ealgar-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucrat
 CC = c++
 
-SRC = src/main.cpp src/Bureaucrat.cpp
+SRC_DIR = src
+OBJ_DIR = objs
+
+SRC = $(wildcard $(SRC_DIR)/*.cpp)
+OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 CPPFLAGS = -std=c++98 -Wall -Werror -Wextra
 
-OBJ_SRC = $(SRC:.cpp=.o)
-
-
 all: $(NAME)
-$(NAME): $(OBJ_SRC)
-	$(CC) $(CPPFLAGS) $(OBJ_SRC) -o $(NAME)
+
+$(NAME): $(OBJ)
+	@ $(CC) $(CPPFLAGS) $^ -o $@
+	@ echo $(NAME) compiled
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	@ $(CC) $(CPPFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@ mkdir -p $(OBJ_DIR)
 
 clean:
-	@rm -rf $(OBJ_SRC)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
 
-re:	fclean all
+re: fclean all
 
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:55:05 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/07 18:44:04 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/08 14:10:14 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define AFORM_HPP
 
 # include <iostream>
-# include "Form.hpp"
 
 class Bureaucrat;
 
@@ -22,6 +21,7 @@ class AForm
 {
 	protected:
 		const std::string	_name;
+		const std::string	_target;
 		bool				_signed;
 		const int			_requiredSign;
 		const int			_requiredExec;
@@ -29,9 +29,9 @@ class AForm
 		// default constructor
 			AForm(void);
 		// Copy constructor
-			AForm(const Form &);
+			AForm(const AForm &);
 		// default constructor
-			AForm(const std::string, const int, const int);
+			AForm(const std::string, const std::string, const int, const int);
 		// default constructor
 			~AForm(void);
 		// Equal operator overload
@@ -41,9 +41,10 @@ class AForm
 			int 				getRequiredSign(void) const;
 			int					getRequiredExec(void) const;
 			bool				getSigned(void) const;
-			virtual void		execute(Bureaucrat const & executor) const = 0;
+			const std::string	getTarget(void) const;
 		//	methods
-		void	beSigned(Bureaucrat &);
+			void			beSigned(Bureaucrat &);
+			virtual void	execute(Bureaucrat const & executor) const = 0;
 		// exceptions
 			class GradeTooHighException: public std::exception{
 				public:
@@ -53,7 +54,10 @@ class AForm
 				public:
 					virtual const char *what() const throw();
 			};
-
+			class FormNotSigned: public std::exception{
+				public:
+					virtual const char *what() const throw();
+			};
 };
 
 std::ostream &operator<< (std::ostream &, const AForm &);

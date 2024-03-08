@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:55:01 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/07 18:23:47 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/08 14:25:58 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 //	constructors
 Form::Form(void): _name("DefaultFormName"), _requiredSign(1), _requiredExec(1)
 {
-	std::cout << "[BUREAUCRAT] Default constructor called" << std::endl;
+	std::cout << "[FORM] Default constructor called" << std::endl;
 }
 
 Form::Form(const Form &toCopy): _name(toCopy.getName()), _requiredSign(toCopy.getRequiredSign()), _requiredExec(toCopy.getRequiredExec())
 {
 	this->_signed = toCopy._signed;
-	std::cout << "[BUREAUCRAT] Copy constructor called" << std::endl;
+	std::cout << "[FORM] Copy constructor called" << std::endl;
 }
 
 Form::Form(const std::string name, const int requiredSign, const int requiredExec): _name(name), _requiredSign(requiredSign), _requiredExec(requiredExec)
@@ -39,12 +39,12 @@ Form::Form(const std::string name, const int requiredSign, const int requiredExe
 		std::cerr << e.what() << '\n';
 	}
 	
-	std::cout << "[BUREAUCRAT] Data constructor called" << std::endl;
+	std::cout << "[FORM] Data constructor called" << std::endl;
 }
 
 Form::~Form(void)
 {
-	std::cout << "[BUREAUCRAT] Destructor called" << std::endl;
+	std::cout << "[FORM] Destructor called" << std::endl;
 }
 
 Form &Form::operator=(const Form &toEqual)

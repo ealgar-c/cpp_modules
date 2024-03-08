@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 18:36:46 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/08 13:45:25 by ealgar-c         ###   ########.fr       */
+/*   Created: 2024/03/08 14:43:36 by ealgar-c          #+#    #+#             */
+/*   Updated: 2024/03/08 14:51:00 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
 
-class ShrubberyCreationForm: public AForm
+class RobotomyRequestForm: public AForm
 {
 	public:
 		//	constructors
-		ShrubberyCreationForm(void);
-		ShrubberyCreationForm(const ShrubberyCreationForm &);
-		ShrubberyCreationForm(const std::string);
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(const RobotomyRequestForm &);
+		RobotomyRequestForm(const std::string);
 		//	destructor
-		~ShrubberyCreationForm(void);
+		~RobotomyRequestForm(void);
 		//	equal operator overload
-		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &);
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm &);
 		//	methods
 		void	execute(Bureaucrat const & executor) const;
 };
