@@ -14,18 +14,18 @@
 #include "../include/Bureaucrat.hpp"
 
 //	constructors
-AForm::AForm(void): _name("DefaultFormName"), _requiredSign(1), _requiredExec(1)
+AForm::AForm(void): _name("DefaultFormName"), _target("DefaulTarget"), _signed(false), _requiredSign(1), _requiredExec(1)
 {
 	std::cout << "[AForm] Default constructor called" << std::endl;
 }
 
-AForm::AForm(const AForm &toCopy): _name(toCopy.getName()), _target(toCopy.getTarget()), _requiredSign(toCopy.getRequiredSign()), _requiredExec(toCopy.getRequiredExec())
+AForm::AForm(const AForm &toCopy): _name(toCopy.getName()), _target(toCopy.getTarget()), _signed(toCopy.getSigned()), _requiredSign(toCopy.getRequiredSign()), _requiredExec(toCopy.getRequiredExec())
 {
 	this->_signed = toCopy._signed;
 	std::cout << "[AForm] Copy constructor called" << std::endl;
 }
 
-AForm::AForm(const std::string name, const std::string target, const int requiredSign, const int requiredExec): _name(name), _target(target), _requiredSign(requiredSign), _requiredExec(requiredExec)
+AForm::AForm(const std::string name, const std::string target, const int requiredSign, const int requiredExec): _name(name), _target(target), _signed(false), _requiredSign(requiredSign), _requiredExec(requiredExec)
 {
 	try
 	{

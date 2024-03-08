@@ -18,7 +18,7 @@ OBJ_DIR = objs
 
 SRC = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
-CPPFLAGS = -std=c++98 -Wall -Werror -Wextra
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

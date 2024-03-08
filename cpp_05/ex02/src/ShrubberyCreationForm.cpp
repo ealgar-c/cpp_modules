@@ -54,7 +54,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		throw(ShrubberyCreationForm::GradeTooLowException());
 	else
 	{
-		std::ofstream	file(this->getTarget() + "_shrubbery");
+		std::ofstream	file((this->getTarget() + "_shrubbery").c_str());
 		file << "               ,@@@@@@@," << std::endl
 			<< "       ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl
 			<< "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl
