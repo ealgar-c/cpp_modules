@@ -6,11 +6,11 @@
 #    By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 17:45:45 by ealgar-c          #+#    #+#              #
-#    Updated: 2024/03/10 19:02:25 by ealgar-c         ###   ########.fr        #
+#    Updated: 2024/03/10 19:23:44 by ealgar-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serializer
+NAME = akinator
 CC = c++
 
 SRC_DIR = src
