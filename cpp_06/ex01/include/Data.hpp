@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 15:11:37 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/10 15:30:00 by ealgar-c         ###   ########.fr       */
+/*   Created: 2024/03/10 15:26:03 by ealgar-c          #+#    #+#             */
+/*   Updated: 2024/03/10 15:29:39 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef DATA_HPP
+# define DATA_HPP
 
 # include <iostream>
 # include <string>
-# include <cstdint>
 
-class Data;
-
-class Serializer
+class Data
 {
 	private:
-		//	constructors
-			Serializer(void);
-			Serializer(const Serializer &);
-		// equal operator assignment
-		Serializer &operator=(const Serializer &);
+		std::string	_name;
+		int			age;
 	public:
-		//	destructor
-			~Serializer();
-		//	methods
-			static uintptr_t	serialize(Data *ptr);
-			static Data			deserialize(uintptr_t raw);			
+		//	Constructors
+			Data();
+			Data(Data &);
+			Data(const std::string, const int);
+		//	Destructor
+			~Data();
+		//	Equal assignment overload
+			Data &operator=(const Data &);
+		//	getters
+			std::string	getName() const;
+			int			getAge() const;
 };
 
 #endif

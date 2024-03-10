@@ -6,7 +6,10 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 15:09:25 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/10 15:11:35 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/10 16:08:20 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../include/Serializer.hpp"
+#include "../include/Data.hpp"
 
