@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:11:56 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/09 00:26:06 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:17:51 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../include/PresidentialPardonForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/Bureaucrat.hpp"
+#include <ctime>
 
 int main(void)
 {
@@ -24,6 +25,7 @@ int main(void)
 	RobotomyRequestForm		operacion("rufus");
 	PresidentialPardonForm	perdon("marcos");
 
+	std::srand(std::time(NULL));
 	pepito.signForm(formArbol);
 	pablito.executeForm(formArbol);
 	pablito.signForm(perdon);

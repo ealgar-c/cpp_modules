@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 00:17:09 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/09 01:09:47 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:29:19 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 
 PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonForm", "DefaultTarget", 25, 5)
 {
-	std::cout << "[PRESIDENTIAL PARDON FORM] Empty Constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &toCopy): AForm(toCopy.getName(), toCopy.getTarget(), toCopy.getRequiredSign(), toCopy.getRequiredExec())
 {
-	std::cout << "[PRESIDENTIAL PARDON FORM] Copy Constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string target): AForm("PresidentialPardonForm", target, 25, 5)
 {
-	std::cout << "[PRESIDENTIAL PARDON FORM] Default Constructor called" << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-	std::cout << "[PRESIDENTIAL PARDON FORM] Destructor called" << std::endl;
 }
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &toEqual)

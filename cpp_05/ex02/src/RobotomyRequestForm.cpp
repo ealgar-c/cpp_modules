@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 14:44:34 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/09 00:27:35 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:47:18 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,18 @@
 
 RobotomyRequestForm::RobotomyRequestForm(void): AForm("RobotomyRequestForm", "DefaultTarget", 72, 45)
 {
-	std::cout << "[ROBOTOMY REQUEST FORM] Empty Constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &toCopy): AForm(toCopy.getName(), toCopy.getTarget(), toCopy.getRequiredSign(), toCopy.getRequiredExec())
 {
-	std::cout << "[ROBOTOMY REQUEST FORM] Copy Constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target): AForm("RobotomyRequestForm", target, 72, 45)
 {
-	std::cout << "[ROBOTOMY REQUEST FORM] Default Constructor called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void)
-{	
-	std::cout << "[ROBOTOMY REQUEST FORM] Destructor called" << std::endl;
+{
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &toEqual)
@@ -54,7 +50,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		throw(RobotomyRequestForm::GradeTooLowException());
 	else
 	{
-		if (std::rand() % 2 == 0) //FIXME: me da que esto no funciona asi
+		if (std::rand() % 2 == 0)
 			std::cout << this->_target << " has been robotomized" << std::endl;
 		else
 			std::cout << this->_target << "'s robotomy failed" << std::endl;

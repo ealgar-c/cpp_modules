@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:11:53 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/08 14:29:53 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:46:40 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 Bureaucrat::Bureaucrat(void): _name("DefaultBureauName")
 {
 	this->_grade = 75;
-	std::cout << "[BUREAUCRAT] Default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &toCopy): _name(toCopy.getName())
 {
 	this->_grade = toCopy.getGrade();
-	std::cout << "[BUREAUCRAT] Copy constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, const int grade): _name(name)
@@ -47,7 +45,6 @@ Bureaucrat::Bureaucrat(const std::string &name, const int grade): _name(name)
 // destructor
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "[BUREAUCRAT] Destructor called" << std::endl;
 }
 
 // equal operator overload
@@ -119,6 +116,7 @@ void	Bureaucrat::executeForm(AForm const &form)
 	}
 	catch(const std::exception& e)
 	{
+		std::cerr << this->getName() << " was unable to execute the Form " << form.getName() << std::endl;
 		std::cerr << e.what() << '\n';
 	}
 	

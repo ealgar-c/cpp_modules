@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 00:37:35 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/09 01:11:40 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:27:12 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 
 Intern::Intern(void)
 {
-	std::cout << "[INTERN] Default constructor called" << std::endl;
 }
 
 Intern::Intern(Intern &toCopy)
 {
-	std::cout << "[INTERN] Default constructor called" << std::endl;
 	(void)toCopy;
 }
 
 Intern::~Intern()
 {
-	std::cout << "[INTERN] Destructor called" << std::endl;
 }
 
 Intern	&Intern::operator=(const Intern &toEqual)
@@ -35,7 +32,7 @@ Intern	&Intern::operator=(const Intern &toEqual)
 	return(*this);
 }
 
-AForm	*makeForm(const std::string formName, const std::string formTarget)
+AForm	*Intern::makeForm(const std::string formName, const std::string formTarget) const
 {
 	std::string	formTypes[3] = {"RobotomyRequestForm", "ShrubberyCreationForm", "PresidentialPardonForm"};
 	int i = 0;

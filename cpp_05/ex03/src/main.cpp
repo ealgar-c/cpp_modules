@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:11:56 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/09 01:07:42 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:25:17 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ int main(void)
 	Bureaucrat	paquito("paquito", 2);
 	Bureaucrat	pablito("pablito", 130);
 	Intern		becario;
-	AForm	*formArbol = becario.makeForm("ShrubberryCreationForm", "pipo");
+	AForm	*formArbol = becario.makeForm("ShrubberyCreationForm", "pipo");
 	AForm	*operacion = becario.makeForm("RobotomyRequestForm", "rufus");
 	AForm	*perdon = becario.makeForm("PresidentialPardonForm", "marcos");
 
+	std::srand(std::time(NULL));
 	pepito.signForm(*formArbol);
 	pablito.executeForm(*formArbol);
 	pablito.signForm(*perdon);

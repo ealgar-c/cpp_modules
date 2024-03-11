@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:55:01 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/09 01:08:14 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:38:08 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 //	constructors
 AForm::AForm(void): _name("DefaultFormName"), _target("DefaulTarget"), _signed(false), _requiredSign(1), _requiredExec(1)
 {
-	std::cout << "[AForm] Default constructor called" << std::endl;
 }
 
 AForm::AForm(const AForm &toCopy): _name(toCopy.getName()), _target(toCopy.getTarget()), _signed(toCopy.getSigned()), _requiredSign(toCopy.getRequiredSign()), _requiredExec(toCopy.getRequiredExec())
 {
 	this->_signed = toCopy._signed;
-	std::cout << "[AForm] Copy constructor called" << std::endl;
 }
 
 AForm::AForm(const std::string name, const std::string target, const int requiredSign, const int requiredExec): _name(name), _target(target), _signed(false), _requiredSign(requiredSign), _requiredExec(requiredExec)
@@ -38,13 +36,10 @@ AForm::AForm(const std::string name, const std::string target, const int require
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-	std::cout << "[AForm] Data constructor called" << std::endl;
 }
 
 AForm::~AForm(void)
 {
-	std::cout << "[AForm] Destructor called" << std::endl;
 }
 
 AForm &AForm::operator=(const AForm &toEqual)
@@ -95,6 +90,7 @@ void	AForm::beSigned(Bureaucrat &bureau)
 	}
 	catch(const std::exception& e)
 	{
+		std::cerr << bureau.getName() << " was unable to sign the Form " << this->getName() << std::endl;
 		std::cerr << e.what() << '\n';
 	}
 }

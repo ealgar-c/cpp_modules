@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 13:15:04 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/09 01:09:57 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:28:47 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,19 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", "DefaultTarget", 145, 137)
 {
-	std::cout << "[SHRUBBERY CREATION FORM] Empty Constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &toCopy): AForm(toCopy.getName(), toCopy.getTarget(), toCopy.getRequiredSign(), toCopy.getRequiredExec())
 {
-	std::cout << "[SHRUBBERY CREATION FORM] Copy Constructor called" << std::endl;
 }
 
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): AForm("ShrubberyCreationForm", target, 145, 137)
 {
-	std::cout << "[SHRUBBERY CREATION FORM] Default Constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
-	std::cout << "[SHRUBBERY CREATION FORM] Destructor called" << std::endl;
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &toEqual)
