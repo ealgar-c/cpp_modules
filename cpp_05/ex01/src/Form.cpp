@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:55:01 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/11 10:50:36 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:00:15 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ Form &Form::operator=(const Form &toEqual)
 }
 
 //	getters
-const std::string	Form::getName(void) const
+std::string	Form::getName(void) const
 {
 	return (this->_name);
 }
 
-const int	Form::getRequiredExec(void) const
+int	Form::getRequiredExec(void) const
 {
 	return (this->_requiredExec);
 }
 
-const int	Form::getRequiredSign(void) const
+int	Form::getRequiredSign(void) const
 {
 	return (this->_requiredSign);
 }

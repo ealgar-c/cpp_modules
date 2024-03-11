@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:11:53 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/11 10:48:19 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:59:02 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Bureaucrat &Bureaucrat::operator= (const Bureaucrat &toEqual)
 }
 
 // getters
-const std::string	Bureaucrat::getName(void) const
+std::string	Bureaucrat::getName(void) const
 {
 	return (this->_name);
 }

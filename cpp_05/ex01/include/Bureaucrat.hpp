@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:11:51 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/07 18:18:17 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:58:56 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class Form;
 			// equal operator overload
 				Bureaucrat &operator= (const Bureaucrat &);
 			// getters
-				const std::string	getName(void) const;
-				int					getGrade(void) const;
+				std::string	getName(void) const;
+				int			getGrade(void) const;
 			// methods
 				void	incrementGrade(void);
 				void	decrementGrade(void);

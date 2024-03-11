@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:11:53 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/11 10:46:40 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:01:14 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &toCopy): _name(toCopy.getName())
 
 Bureaucrat::Bureaucrat(const std::string &name, const int grade): _name(name)
 {
-	std::cout << "[BUREAUCRAT] Data constructor called" << std::endl;
 	try
 	{
 		if (grade < 1)

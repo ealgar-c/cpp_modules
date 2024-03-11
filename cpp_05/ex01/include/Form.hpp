@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:55:05 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/11 10:50:46 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:59:58 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ class Form
 		// Equal operator overload
 			Form &operator= (const Form &);
 		// getters
-			const std::string	getName(void) const;
-			const int			getRequiredSign(void) const;
-			const int			getRequiredExec(void) const;
-			bool				getSigned(void) const;
+			std::string	getName(void) const;
+			int			getRequiredSign(void) const;
+			int			getRequiredExec(void) const;
+			bool		getSigned(void) const;
 		// mehods
 			void		beSigned(Bureaucrat &);
 		// exceptions
