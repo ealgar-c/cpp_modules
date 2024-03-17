@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 11:55:43 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/10 13:57:52 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:49:49 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	get_index(std::string str)
 		return (PSED);
 	if (str == "inf")
 		return (INT_MAX);
-	if (str.length() == 1 && (str[0] >= 32 && str[0] <= 126))
+	if (str.length() == 1 && ((str[0] >= 32 && str[0] < 48) || (str[0] > 57 && str[0] <= 126)))
 		return (CHAR);
 	strtol(str.c_str(), &endptr, 10);
 	if (endptr[0] == '\0')
