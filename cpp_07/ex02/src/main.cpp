@@ -6,33 +6,30 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:43:25 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/11 12:29:36 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/17 15:43:23 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include "../include/Array.hpp"
-#include "../include/Array.tpp"
-#include <iostream>
+#include "../include/Array.hpp"
 #include <string>
 
 int main(void)
 {
-	{	
-		Array<std::string> str_arr(5);
-		std::cout << "test0" << std::endl;
+	Array<std::string> str_arr(5);
+	try
+	{
 		str_arr[0] = "Hola";
-		std::cout << "test1" << std::endl;
-		str_arr[1] = "que";
-		std::cout << "test2" << std::endl;
-		str_arr[2] = "tal";
-		std::cout << "test3" << std::endl;
-		str_arr[4] = "contigo";
-		std::cout << "test4" << std::endl;
-		str_arr[5] = "pipo!";
-		std::cout << "test5" << std::endl;
-		std::cout << str_arr[2] << std::endl;
+		str_arr[1] = "pipo!";
+		str_arr[2] = "que";
+		str_arr[3] = "tal";
+		
+		std::cout << "str_arr[1]: " << str_arr[1] << std::endl;
 		std::cout << "el tamaño del Array es: " << str_arr.size() << std::endl;
 		std::cout << str_arr[6];
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 	{
 		Array<int> int_arr(5);
@@ -45,20 +42,20 @@ int main(void)
 		std::cout << "el tamaño del Array es: " << int_arr.size() << std::endl;
 	}
 	return (0);
-} */
+}
 
-#include <iostream>
-#include <Array.hpp>
+/* #include <iostream>
+#include "../include/Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
+    std::srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
-        const int value = rand();
+        const int value = std::rand();
         numbers[i] = value;
         mirror[i] = value;
     }
@@ -95,8 +92,8 @@ int main(int, char**)
 
     for (int i = 0; i < MAX_VAL; i++)
     {
-        numbers[i] = rand();
+        numbers[i] = std::rand();
     }
     delete [] mirror;//
     return 0;
-}
+} */

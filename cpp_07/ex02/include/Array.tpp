@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:35:52 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/11 12:27:30 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/17 15:37:57 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ template<typename T>
 Array<T>::Array(const Array &toCopy)
 {
 	this->_content = new T[toCopy.size()];
-	this->_size = toCopy._size();
-	for (int i = 0; i < this->_size; i++)
+	this->_size = toCopy.size();
+	for (unsigned int i = 0; i < this->_size; i++)
 		this->_content[i] = toCopy._content[i];
 }
 
@@ -59,20 +59,12 @@ Array<T>	&Array<T>::operator=(const Array &toEqual)
 }
 
 template<typename T>
-T	Array<T>::operator[](unsigned int nb) const
+T	&Array<T>::operator[](unsigned int nb)
 {
-	try
-	{
-		if (nb >= this->_size)
-			throw(Array<T>::OOBExcept());
-		else
-			return (this->_content[nb]);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	return (NULL);
+	if (nb >= this->_size)
+		throw(Array<T>::OOBExcept());
+	else
+		return (this->_content[nb]);
 }
 
 template<typename T>
