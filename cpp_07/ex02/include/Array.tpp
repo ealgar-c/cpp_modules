@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:35:52 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/10 21:21:24 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:27:30 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Array<T>::Array(const Array &toCopy)
 {
 	this->_content = new T[toCopy.size()];
 	this->_size = toCopy._size();
-	for (int i = 0; i < this->_size, i++)
+	for (int i = 0; i < this->_size; i++)
 		this->_content[i] = toCopy._content[i];
 }
 
@@ -65,11 +65,12 @@ T	Array<T>::operator[](unsigned int nb) const
 	{
 		if (nb >= this->_size)
 			throw(Array<T>::OOBExcept());
-		return (this->_content[nb]);
+		else
+			return (this->_content[nb]);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << sd::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	return (NULL);
 }

@@ -6,11 +6,11 @@
 #    By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 17:45:45 by ealgar-c          #+#    #+#              #
-#    Updated: 2024/03/10 20:23:03 by ealgar-c         ###   ########.fr        #
+#    Updated: 2024/03/11 12:22:38 by ealgar-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iter
+NAME = array
 CC = c++
 
 SRC_DIR = src

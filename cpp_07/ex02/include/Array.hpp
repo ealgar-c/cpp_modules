@@ -6,14 +6,16 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:35:56 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/10 21:06:53 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:22:00 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 
-template<typename T>
+# include <exception>
+# include <iostream>
 
+template<typename T>
 class Array
 {
 	private:
