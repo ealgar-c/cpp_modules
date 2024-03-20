@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:03:48 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/20 14:24:04 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:20:25 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange &);
 		~BitcoinExchange();
 		BitcoinExchange &operator=(const BitcoinExchange &);
-		void	extractFile(std::ifstream &);
-		void	extractDb(std::ifstream &);
+		void	extractFiles(std::ifstream &, std::ifstream &);
 		void	setDbNode(const std::string &, const double &);
 		class	EOFExcpt: public std::exception{
 			const char *what() const throw(){
@@ -44,6 +43,11 @@ class BitcoinExchange
 		class	VORExcpt: public std::exception{
 			const char *what() const throw(){
 				return ("[VOR EXCEPTION] Value out of range");
+			};
+		};
+		class	NEVExcpt: public std::exception{
+			const char *what() const throw(){
+				return ("[NEV EXCEPTION] Negative value not allowed");
 			};
 		};
 };

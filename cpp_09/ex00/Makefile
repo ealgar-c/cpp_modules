@@ -6,11 +6,11 @@
 #    By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/18 11:15:17 by ealgar-c          #+#    #+#              #
-#    Updated: 2024/03/18 11:15:24 by ealgar-c         ###   ########.fr        #
+#    Updated: 2024/03/20 20:47:25 by ealgar-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = abomination
+NAME = broker
 CC = c++
 
 SRC_DIR = src
