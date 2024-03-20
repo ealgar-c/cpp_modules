@@ -6,11 +6,11 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:43:25 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/17 15:43:23 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:16:06 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Array.hpp"
+/* #include "../include/Array.hpp"
 #include <string>
 
 int main(void)
@@ -42,9 +42,9 @@ int main(void)
 		std::cout << "el tamaño del Array es: " << int_arr.size() << std::endl;
 	}
 	return (0);
-}
+} */
 
-/* #include <iostream>
+#include <iostream>
 #include "../include/Array.hpp"
 
 #define MAX_VAL 750
@@ -96,4 +96,4 @@ int main(int, char**)
     }
     delete [] mirror;//
     return 0;
-} */
+}

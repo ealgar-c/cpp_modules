@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:26:24 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/10 20:31:03 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:15:30 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int main(void)
 {
-	int	len = 5;
-	int 	numeric_array[len] = {1, 3, 5, 7, 9};
-	char	char_array[len] = {'p', 'i', 'p', 'o', '!'};
+	int 	numeric_array[5] = {1, 3, 5, 7, 9};
+	char	char_array[5] = {'p', 'i', 'p', 'o', '!'};
 
-	iter(numeric_array, len, printer<int>);
+	iter(numeric_array, 5, printer<int>);
 	std::cout << std::endl;
-	iter(char_array, len, printer<char>);
+	iter(char_array, 5, printer<char>);
 }
