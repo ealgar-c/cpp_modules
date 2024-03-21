@@ -6,11 +6,11 @@
 #    By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/18 11:15:17 by ealgar-c          #+#    #+#              #
-#    Updated: 2024/03/21 17:17:27 by ealgar-c         ###   ########.fr        #
+#    Updated: 2024/03/21 20:27:15 by ealgar-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = PmergeMe
 CC = c++
 
 SRC_DIR = src

@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:03:48 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/20 18:20:25 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:23:13 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class BitcoinExchange
 {
 	private:
 		std::map<std::string, double>	_db;
-		std::map<std::string, double>	_inputFile;
 	public:
 		BitcoinExchange(const std::string &, const std::string &);
 		BitcoinExchange(const BitcoinExchange &);
@@ -30,6 +29,7 @@ class BitcoinExchange
 		BitcoinExchange &operator=(const BitcoinExchange &);
 		void	extractFiles(std::ifstream &, std::ifstream &);
 		void	setDbNode(const std::string &, const double &);
+		void	getValueFromDb(const std::string &, const double &);
 		class	EOFExcpt: public std::exception{
 			const char *what() const throw(){
 				return ("[EOF EXCEPTION] Error opening file");
@@ -48,6 +48,11 @@ class BitcoinExchange
 		class	NEVExcpt: public std::exception{
 			const char *what() const throw(){
 				return ("[NEV EXCEPTION] Negative value not allowed");
+			};
+		};
+		class	DNFExcpt: public std::exception{
+			const char *what() const throw(){
+				return ("[DNF EXCEPTION] Data not found");
 			};
 		};
 };

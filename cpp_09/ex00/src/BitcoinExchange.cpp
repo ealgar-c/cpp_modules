@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:28:11 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/20 21:01:48 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:38:54 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ BitcoinExchange::BitcoinExchange(const std::string &database, const std::string 
 	this->extractFiles(fileStream, dbStream);
 }
 
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &toCopy)
+{
+	this->_db = toCopy.db;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &toEqual)
+{
+	if (this != &toEqual)
+		this->_db = toEqual._db;
+	return (*this);
+}
+
 static void	saveDbEntry(std::string &strToCheck, BitcoinExchange &btcEx)
 {
 	int j = strToCheck.find(",", 0);
@@ -40,54 +52,32 @@ static void	saveDbEntry(std::string &strToCheck, BitcoinExchange &btcEx)
 	btcEx.setDbNode(dateStr, numValue);
 }
 
-static	bool	dateChecker(const std::string str)
+static	void	dateChecker(std::string str)
 {
 	int	yr;
 	int	mn;
 	int	day;
 	int	i;
-	int	j;
 
-/* 	if (i = str.find("-", 0) != -1)
-	{
-		yr = atoi(str.substr(0, i - 1).c_str());
-		if (yr < 2019)
-			throw(BitcoinExchange::BDIExcpt());
-		j = i;
-		if (i = str.find("-", i) != -1)
-		{
-			mn = atoi(str.substr(j, i - j).c_str());
-			if (mn <= 0 || mn > 12)
-				throw(BitcoinExchange::BDIExcpt());
-			j = i + 1;
-			day = atoi((str.substr(j, str.length() - j)).c_str());
-			if (day <= 0 && day > 31)
-				throw(BitcoinExchange::BDIExcpt());
-		}
-	} */
 	i = str.find("-", 0);
 	if (i != -1)
 	{
 		yr = atoi(str.substr(0, i).c_str());
-		std::cout << str.substr(0, i) << std::endl;
 		if (yr < 2009)
-			std::cerr << "test" << std::endl;
-		j = i + 1;
-		i = str.find("-", j);
+			throw(BitcoinExchange::BDIExcpt());
+		str.erase(0, i + 1);
+		i = str.find("-", 0);
 		if (i != -1)
 		{
-			mn = atoi(str.substr(j, i - j).c_str());
-			std::cout << str.substr(j, i - j) << std::endl;
+			mn = atoi(str.substr(0, i).c_str());
 			if (mn <= 0 || mn > 12)
-				std::cerr << "test" << std::endl;
-			j = i + 1;
-			day = atoi((str.substr(j, str.length() - j)).c_str());
-			std::cout << str.substr(j, str.npos()) << std::endl;
+				throw(BitcoinExchange::BDIExcpt());
+			str.erase(0, i + 1);
+			day = atoi(str.c_str());
 			if (day <= 0 || day > 31)
-				std::cerr << "test" << std::endl;
+				throw(BitcoinExchange::BDIExcpt());
 		}
 	}
-	return true;
 }
 
 static void	saveFileEntry(std::string &strToCheck, BitcoinExchange &btcEx)
@@ -98,21 +88,25 @@ static void	saveFileEntry(std::string &strToCheck, BitcoinExchange &btcEx)
 	int			j;
 
 	(void)btcEx;
+	if (strToCheck == "date | value")
+		return ;
 	try
 	{
 		j = strToCheck.find(" | ", 0);
 		if (j != -1)
 		{
-			dateStr = strToCheck.substr(0, j - 1);
-			valueStr = strToCheck.substr(j + 1, strToCheck.length() - j + 1);
+			dateStr = strToCheck.substr(0, j);
+			valueStr = strToCheck.substr(j + 3);
 			numValue = atof(valueStr.c_str());
-			if (!dateChecker(dateStr))
-				throw(BitcoinExchange::BDIExcpt());
+			//std::cout << "date: " << dateStr << " val: " << numValue << " (str = " << valueStr << ")" << std::endl;
+			dateChecker(dateStr);
 			if (numValue >= 1000 || (numValue == 0.0 && (valueStr != "0.0" || valueStr != "0")))
+			{
 				throw(BitcoinExchange::VORExcpt());
+			}
 			if (numValue < 0.0)
 				throw(BitcoinExchange::NEVExcpt());
-			//btcEx.setFileNode(dateStr, numValue)
+			btcEx.getValueFromDb(dateStr, numValue);
 		}
 		else
 			throw(BitcoinExchange::BDIExcpt());
@@ -144,6 +138,33 @@ void	BitcoinExchange::extractFiles(std::ifstream &fileStream, std::ifstream &dbS
 void	BitcoinExchange::setDbNode(const std::string &dateStr, const double &numDbValue)
 {
 	this->_db.insert(std::pair<std::string, double>(dateStr, numDbValue));
+}
+
+static void	printValue(std::string str, const double value, std::map<std::string, double>::iterator dbnode)
+{
+	std::cout << str << " ==> " << value;
+	std::cout << " = " << value * dbnode->second << std::endl;
+}
+
+void	BitcoinExchange::getValueFromDb(const std::string &dateStr, const double &val)
+{
+	std::map<std::string, double>::iterator it = this->_db.begin();
+	try
+	{
+		if (dateStr < it->first)
+			throw (BitcoinExchange::DNFExcpt());
+		it = this->_db.lower_bound(dateStr);
+		if (it != _db.begin())
+		{
+			if (it->first != dateStr)
+				it--;
+			printValue(dateStr, val, it);
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl; 
+	}
 }
 
 BitcoinExchange::~BitcoinExchange(){}
