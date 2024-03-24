@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:28:11 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/21 14:38:54 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/24 00:10:44 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ BitcoinExchange::BitcoinExchange(const std::string &database, const std::string 
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &toCopy)
 {
-	this->_db = toCopy.db;
+	this->_db = toCopy._db;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &toEqual)
