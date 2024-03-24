@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:03:48 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/21 14:23:13 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:13:27 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <string>
 # include <map>
 # include <exception>
+# include <cstdlib>
+
 
 class BitcoinExchange
 {

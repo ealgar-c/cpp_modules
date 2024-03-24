@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:28:11 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/24 00:10:44 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:14:24 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ BitcoinExchange::BitcoinExchange(const std::string &database, const std::string 
 	std::ifstream dbStream;
 	std::ifstream fileStream;
 
-	dbStream.open(database);
-	fileStream.open(inputFile);
+	dbStream.open(database.c_str());
+	fileStream.open(inputFile.c_str());
 	if (dbStream.fail())
 	{
 		std::cerr << "file " << database << " not found" << std::endl;

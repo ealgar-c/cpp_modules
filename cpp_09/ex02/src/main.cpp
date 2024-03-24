@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:27:23 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/22 15:57:47 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:09:06 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@ int	main(int ac, char **av)
 {
 	struct timeval	start, end;
 
-	PmergeMe	pmergeme(av);
+	if (ac == 1)
+	{
+		std::cout << "please insert a valid set of numbers" << std::endl;
+		return (1);
+	}
+	PmergeMe	pmergeme(++av);
 	std::cout << "Before: ";
 	pmergeme.printList();
 	gettimeofday(&start, NULL);
