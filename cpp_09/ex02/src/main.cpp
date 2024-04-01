@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:27:23 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/24 18:09:06 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:56:43 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int	main(int ac, char **av)
 	std::cout << "After: ";
 	pmergeme.printList();
 	std::cout << "time to process a range of "<< pmergeme.getArrlen() << " elements with std::list : " << timerList << " us." << std::endl;
-	std::cout << "time to process a range of "<< pmergeme.getArrlen() << " elements with std::list : " << timerVector << " us." << std::endl;
+	std::cout << "time to process a range of "<< pmergeme.getArrlen() << " elements with std::vector : " << timerVector << " us." << std::endl;
 	return 0;
 }
