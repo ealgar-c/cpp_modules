@@ -6,17 +6,19 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:35:17 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/21 19:18:23 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:52:28 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/RPN.hpp"
 
-static int	isoperand(char c)
+RPN::RPN(){std::cout << "Haz feliz a una yolanthe" << std::endl;}
+
+static bool	isoperand(char c)
 {
 	if (c == '+' || c == '-' || c == '/' || c == '*')
-			return 1;
-	return 0;
+			return true;
+	return false;
 }
 
 static void	parsingError(char c)
@@ -27,21 +29,26 @@ static void	parsingError(char c)
 
 RPN::RPN(const std::string &str)
 {
-	for(int i = str.size() - 1; i >= 0; i--)
+	for(size_t i = 0; i <= str.size() - 1; i++)
 	{
 		if (isdigit(str[i]) != 0)
 			this->_numbers.push(atoi(&str[i]));
-		else if (isoperand(str[i]) != 0)
-			this->_signs.push(str[i]);
+		else if (isoperand(str[i]))
+			this->calculator(str[i]);
 		else if (isspace(str[i]) == 0)
 			parsingError(str[i]);
 	}
+	if (this->_numbers.size() != 1)
+	{
+		std::cout << "parsing error: not enough tokens" << std::endl;
+		exit(1);
+	}
+	std::cout << this->_numbers.top() << std::endl;
 }
 
 RPN::RPN(const RPN &toCopy)
 {
 	this->_numbers = toCopy._numbers;
-	this->_signs = toCopy._signs;
 }
 
 RPN::~RPN()
@@ -54,72 +61,40 @@ RPN &RPN::operator=(const RPN &toEqual)
 	if (this != &toEqual)
 	{
 		this->_numbers = toEqual._numbers;
-		this->_signs = toEqual._signs;
 	}
 	return (*this);
 }
 
-int	RPN::calculator(void)
+void	RPN::calculator(char c)
 {
-	int	a = this->_numbers.top();
-	this->_numbers.pop();
-	int	b = this->_numbers.top();
-	this->_numbers.pop();
-	while(this->_numbers.size() != 0)
+	if (this->_numbers.size() < 2)
 	{
-		if (this->_signs.size() != 0)
-		{
-			switch (this->_signs.top())
-			{
-			case '+':
-				a += b;
-				break;
-			case '-':
-				a -= b;
-				break;
-			case '*':
-				a *= b;
-				break;
-			case '/':
-				a /= b;
-				break;
-			
-			default:
-				std::cout << "Unknown operation found" << std::endl;
-				break;
-			}
-		}
-		else
-			a *= b;
-		b = this->_numbers.top();
-		if (this->_numbers.size() != 0)
-			this->_numbers.pop();
-		if (this->_signs.size() != 0)
-			this->_signs.pop();
+		std::cout << "parsing error: not enough numbers" << std::endl;
+		exit (1);
 	}
-	if (this->_signs.size() != 0)
+	int a = this->_numbers.top();
+	this->_numbers.pop();
+	int b = this->_numbers.top();
+	this->_numbers.pop();
+	int result;
+	switch (c)
 	{
-		switch (this->_signs.top())
+	case '+':
+		result = a + b;
+		break ;
+	case '-':
+		result = b - a;
+		break ;
+	case '*':
+		result = a * b;
+		break ;
+	case '/':
+		if (a == 0)
 		{
-		case '+':
-			a += b;
-			break;
-		case '-':
-			a -= b;
-			break;
-		case '*':
-			a *= b;
-			break;
-		case '/':
-			a /= b;
-			break;
-		
-		default:
-			std::cout << "Unknown operation found" << std::endl;
-			break;
+			std::cout << "math error: division between 0 not supported" << std::endl;
+			exit(1);
 		}
+		result = b / a;
 	}
-	else
-		a *= b;
-	return a;
+	this->_numbers.push(result);
 }

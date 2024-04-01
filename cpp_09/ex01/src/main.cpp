@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:49:30 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/21 18:55:24 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:45:03 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int main(int ac, char **av)
 		return 1;
 	}
 	RPN	rpn(av[1]);
-	std::cout << rpn.calculator() << std::endl;
 	return 0;
 }
