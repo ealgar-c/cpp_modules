@@ -6,11 +6,14 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:28:11 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/24 18:14:24 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:24:37 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
+
+
+BitcoinExchange::BitcoinExchange(){std::cout << "Haz feliz a una yolanthe" << std::endl;}
 
 BitcoinExchange::BitcoinExchange(const std::string &database, const std::string &inputFile)
 {
@@ -52,6 +55,48 @@ static void	saveDbEntry(std::string &strToCheck, BitcoinExchange &btcEx)
 	btcEx.setDbNode(dateStr, numValue);
 }
 
+static bool	checkDay(int month, int day, int year)
+{
+	if (day <= 0)
+		return false;
+	switch (month)
+	{
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			if (day > 31)
+				return false;
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			if (day > 30)
+				return false;
+			break ;
+		case 2:
+			if (year % 400 == 0 || (year % 4 == 0 && (year % 100 != 0)))
+			{
+				if (day > 29)
+					return false;
+			}
+			else
+			{
+				if (day > 28)
+					return false;
+			}
+			break ;
+		default:
+			return false;
+			break ;
+	}
+	return true;
+}
+
 static	void	dateChecker(std::string str)
 {
 	int	yr;
@@ -74,7 +119,7 @@ static	void	dateChecker(std::string str)
 				throw(BitcoinExchange::BDIExcpt());
 			str.erase(0, i + 1);
 			day = atoi(str.c_str());
-			if (day <= 0 || day > 31)
+			if (!checkDay(mn, day, yr))
 				throw(BitcoinExchange::BDIExcpt());
 		}
 	}
@@ -98,7 +143,6 @@ static void	saveFileEntry(std::string &strToCheck, BitcoinExchange &btcEx)
 			dateStr = strToCheck.substr(0, j);
 			valueStr = strToCheck.substr(j + 3);
 			numValue = atof(valueStr.c_str());
-			//std::cout << "date: " << dateStr << " val: " << numValue << " (str = " << valueStr << ")" << std::endl;
 			dateChecker(dateStr);
 			if (numValue >= 1000 || (numValue == 0.0 && (valueStr != "0.0" || valueStr != "0")))
 			{

@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:03:48 by ealgar-c          #+#    #+#             */
-/*   Updated: 2024/03/24 18:13:27 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2024/04/01 11:24:10 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class BitcoinExchange
 	private:
 		std::map<std::string, double>	_db;
 	public:
+	BitcoinExchange();
 		BitcoinExchange(const std::string &, const std::string &);
 		BitcoinExchange(const BitcoinExchange &);
 		~BitcoinExchange();
